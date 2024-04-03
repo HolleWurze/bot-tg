@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/bot-tg/static/css/main.e9c21ade.css",
+    "main.js": "/bot-tg/static/js/main.7561ad8b.js",
+    "index.html": "/bot-tg/index.html",
+    "main.e9c21ade.css.map": "/bot-tg/static/css/main.e9c21ade.css.map",
+    "main.7561ad8b.js.map": "/bot-tg/static/js/main.7561ad8b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e9c21ade.css",
+    "static/js/main.7561ad8b.js"
+  ]
+}
