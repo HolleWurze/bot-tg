@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useUser } from '../context/UserContext';
 import { fetchChatList, fetchUserChatModel } from '../services/BackendService';
-import { Link } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 const ChatListPage = () => {
     const { user, balance } = useUser();
     const [chats, setChats] = useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
         // Fetch chat list from backend
@@ -32,18 +33,18 @@ const ChatListPage = () => {
     const renderChatButtons = () => {
         if (chats.length === 0) {
             return (
-                <div>
-                    <p>It looks like you don't have any chats yet. Do you want to ask something?</p>
-                    <Link to="/main" className="btn">Yes</Link>
-                    <Link to="/main" className="btn">No, I'm just looking</Link>
+                <div className="text-center">
+                    <p className="mb-4">It looks like you don't have any chats yet. Do you want to ask something?</p>
+                    <Link to="/main" className="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-2">Yes</Link>
+                    <Link to="/main" className="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">No, I'm just looking</Link>
                 </div>
             );
         }
 
         return (
-            <div>
+            <div className="grid grid-cols-1 gap-4">
                 {chats.map(chat => (
-                    <button key={chat.id} onClick={() => handleSelectChat(chat.id)}>
+                    <button key={chat.id} onClick={() => handleSelectChat(chat.id)} className="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                         Чат номер {chat.id}
                     </button>
                 ))}
@@ -52,9 +53,12 @@ const ChatListPage = () => {
     };
 
     return (
-        <div>
-            <h1>Открытые чаты</h1>
+        <div className="p-4 max-w-xl mx-auto">
+            <h1 className="text-xl font-semibold text-center mb-4">Открытые чаты</h1>
             {renderChatButtons()}
+            <button onClick={() => navigate(-1)}
+                className="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Back</button>
         </div>
     );
 };

@@ -2,24 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Глобальные стили и определения переменных */
+:root {
+  --bg-color: #FFFFFF; /* Белый фон по умолчанию */
+  --text-color: #000000; /* Черный текст по умолчанию */
+  --btn-bg-color: #4A90E2; /* Синие кнопки по умолчанию */
+  --btn-text-color: #FFFFFF; /* Белый текст кнопок */
 }
 
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* Определения для кнопок, используя Tailwind CSS синтаксис как пример */
 .btn {
-  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+  background-color: var(--btn-bg-color);
+  color: var(--btn-text-color);
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
 }
 
 .btn:hover {
-  @apply bg-blue-700;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  opacity: 0.9;
 }
